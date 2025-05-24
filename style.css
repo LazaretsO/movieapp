@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #1a191f;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.header__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 60px;
+    position: relative;
+}
+
+.header__logo {
+    margin-right: auto;
+    font-size: 32px;
+    text-decoration: none;
+    color: white;
+}
+
+.header__form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    pointer-events: none; /* чтобы форма не перекрывала логотип */
+}
+
+.header__search {
+    padding: 8px;
+    border: 2px solid #1a191f;
+    border-radius: 50px;
+    background-color: #2c2b33;
+    outline: none;
+    width: 300px;
+    text-align: center;
+    pointer-events: auto;
+    color: white;
+    font-size: 16px;
+}
+
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.movie {
+    width: 240px;
+    margin: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 440px;
+    transition: transform 0.2s cubic-bezier(.25,.8,.25,1);
+    will-change: transform;
+}
+
+.movie__cover {
+    max-width: 100%;
+    height: 100%;
+}
+
+.movie__cover-inner {
+    position: relative;
+    /* height: 360px; */
+}
+
+.movie__cover--darkned {
+    background-color: black;
+    opacity: 0.1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    max-width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.movie__cover--darkned:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.movie__info {
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+}
+
+.movie__title {
+    font-size: 16px;
+    color: white
+}
+
+.movie__category {
+    font-size: 14px;
+    color: #ffd80e;
+}
+
+.movie__average {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 0;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a191f;
+    color: white;
+    font-size: 14px;
+}
+
+.movie__average--green {
+    border: 3px solid green;
+
+}
+
+.movie__average--orange {
+    border: 3px solid orange;
+}
+
+.movie__average--red {
+    border: 3px solid red;
+}
+
+.movie__watch-btn {
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: flex-end;
+    padding: 8px 16px;
+    background: #fe5c04;
+    color: #1a191f;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.movie__watch-btn:hover {
+    background: #e66f00;
+}
+
+.not__found {
+    color: white;  
+    font-size: 35px;
+    text-align: center;
+    width: 100%;
+    margin-top: 100px;
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 900px) {
+    .container {
+        max-width: 98vw;
+        padding: 0 10px;
+    }
+    .movie {
+        width: 45vw;
+        min-width: 180px;
+        max-width: 320px;
+    }
+    .header__search {
+        width: 200px;
+    }
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 600px) {
+    .header__content {
+        flex-direction: column;
+        align-items: stretch;
+        height: auto;
+        gap: 10px;
+        padding: 10px 0;
+    }
+    .header__logo {
+        margin: 0 auto 10px auto;
+        font-size: 24px;
+        text-align: center;
+    }
+    .header__form {
+        position: static;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+    }
+    .header__search {
+        width: 100%;
+        min-width: 0;
+        font-size: 14px;
+    }
+    .movies {
+        gap: 10px;
+    }
+    .movie {
+        width: 90vw;
+        min-width: 140px;
+        max-width: 100vw;
+        margin: 5px auto;
+    }
+    .movie__cover-inner {
+        min-height: 200px;
+    }
+    .not__found {
+        font-size: 20px;
+        margin-top: 40px;
+    }
+}
